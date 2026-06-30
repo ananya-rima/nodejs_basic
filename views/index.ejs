@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <body>
+    <!-- <h1 style="background-color: aqua">Home Page</h1>
+     <h3>name is <%#=data.name %></h3>
+    <h3> age is <%#= data.age %></h3>
+
+    <%# if(true){%>
+        <h1>hello world</h1>
+        <%#} else {%>
+        <h1>hello sir</h1>
+    <%#}%>. #for comment out ota tule dile code abr thik hoye jbe
+
+    <a href="/about">About  </a>
+      -->
+    <!-- html er file er bhitore condtion use kora jay /value print kora jay ejs r madhyome -->
+
+    <div class="container mt-5">
+      <div class="row">
+        <% users.forEach((data)=>{ %>
+
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow">
+            <img
+              class="card-img-top"
+              src="<%= data.image %>"
+              alt="card image"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title"><%= data.name %></h5>
+              
+              <p class="card-text">Id: <%= data.id %></p>
+
+              <p class="card-text">City: <%= data.city %></p>
+
+              <p class="card-text">Email: <%= data.email %></p>
+
+              
+
+             
+
+
+
+            </div>
+          </div>
+        </div>
+
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

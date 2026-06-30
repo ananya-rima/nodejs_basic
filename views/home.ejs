@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><!= title !></title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background: #f4f7fb;
+      }
+
+      .navbar-brand {
+        font-weight: bold;
+        font-size: 24px;
+      }
+
+      .hero {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-card {
+        background: white;
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .footer {
+        background: #212529;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+      <a class="navbar-brand" href="/"> My Application </a>
+
+      <div class="ms-auto">
+        <% if(user){ %>
+
+        <span class="text-white me-3"> Welcome, <%= user.name %> </span>
+
+        <a href="/dashboard" class="btn btn-outline-light me-2"> Dashboard </a>
+
+        <a href="/logout" class="btn btn-danger"> Logout </a>
+
+        <% } else { %>
+
+        <form action="/role-login" method="get" class="d-inline">
+          <select
+            name="role"
+            class="form-select d-inline"
+            style="width: 150px; display: inline-block !important"
+          >
+            <option value="user">User</option>
+
+            <option value="admin">Admin</option>
+
+            <option value="manager">Manager</option>
+          </select>
+
+          <button type="submit" class="btn btn-primary ms-2">Login</button>
+        </form>
+
+        <a href="/register" class="btn btn-success"> Register </a>
+
+        <% } %>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+
+    <div class="container hero">
+      <div class="hero-card w-100 text-center">
+        <h1 class="display-4 fw-bold">Welcome To My Application</h1>
+
+        <p class="lead mt-3">
+          Manage your account, dashboard and profile easily.
+        </p>
+
+        <% if(!user){ %>
+
+        <a href="/register" class="btn btn-success btn-lg mt-3">
+          Get Started
+        </a>
+
+        <% } else { %>
+
+        <h3 class="mt-4">Hello <%= user.name %> 👋</h3>
+
+        <p>Role : <%= user.role %></p>
+
+        <% } %>
+      </div>
+    </div>
+
+    <!-- Footer -->
+
+    <div class="footer">
+      <p>© 2026 My Application | All Rights Reserved</p>
+    </div>
+  </body>
+</html>

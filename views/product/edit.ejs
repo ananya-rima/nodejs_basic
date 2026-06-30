@@ -1,0 +1,6 @@
+<form action="/update/<%= data._id%>" method="post" enctype="multipart/form-data">
+  <input type="text" name="productName" value="<%= data.productName%>" />
+  <input type="text" name="productPrice" value="<%= data.productPrice%>" />
+  <input type="text" name="desc" value="<%= data.desc%>" />
+  <button type="submit">Update Product</button>
+</form>
