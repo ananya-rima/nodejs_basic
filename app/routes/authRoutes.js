@@ -6,7 +6,14 @@ const Auth=require("../middleware/authMiddleware");
 
 
  router.post('/register',AuthController.register)
+ router.post('/verify-otp',AuthController.verifyOtp)
  router.post('/login',AuthController.login)
+
+ router.post('/reset-password-link',AuthController.resetPasswordLink)
+ router.post('/reset-password/:id/:token',AuthController.resetPassword)
+ 
+
+
 
 
  router.use(Auth); //apply the auth middile ware to all routesbelow this line
